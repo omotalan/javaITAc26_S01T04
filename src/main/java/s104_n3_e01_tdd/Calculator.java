@@ -1,9 +1,9 @@
 package s104_n3_e01_tdd;
 
 public class Calculator {
-    private int total;
+    private double total;
 
-    public Calculator(int total) {
+    public Calculator(double total) {
         this.total = total;
     }
 
@@ -12,19 +12,23 @@ public class Calculator {
         this.total = 0;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public int add(int number) {
+    public double add(double number) {
         return total += number;
     }
 
-    public int subtract(int number) {
+    public double subtract(double number) {
         return total -= number;
     }
 
-    public int multiply(int number) {
+    public double multiply(double number) {
         return total * number;
+    }
+
+    public double divide(double number) {
+        return total / number;
     }
 }
