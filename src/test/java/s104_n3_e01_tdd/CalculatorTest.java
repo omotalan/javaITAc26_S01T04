@@ -62,5 +62,16 @@ public class CalculatorTest {
         assertThat(calculator.reset()).isEqualTo(0);
     }
 
+    @ParameterizedTest(name = "El mètode getTotal() ha de retornar el valor actual del total.")
+    @ValueSource(doubles = {35, 3, 198.4578})
+    void getTotalMethodReturnsCurrentTotal(double number) {
+        Calculator calculator = new Calculator();
+        assertThat(calculator.getTotal()).isEqualTo(0);
+        calculator.add(number);
+        assertThat(calculator.getTotal()).isEqualTo(number);
+        calculator.add(number/2);
+        assertThat(calculator.getTotal()).isEqualTo(number+(number/2));
+    }
+
 
 }
