@@ -34,4 +34,9 @@ public class Calculator {
         }
         return total / number;
     }
+
+    public double reset() {
+        this.total = 0;
+        return total;
+    }
 }
