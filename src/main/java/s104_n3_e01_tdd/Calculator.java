@@ -9,4 +9,12 @@ public class Calculator {
     public int getTotal() {
         return total;
     }
+
+    public int add(int number) {
+        return total += number;
+    }
+
+    public int subtract(int number) {
+        return total -= number;
+    }
 }
