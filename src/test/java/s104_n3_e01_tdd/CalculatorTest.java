@@ -55,5 +55,12 @@ public class CalculatorTest {
         }).isInstanceOf(ArithmeticException.class);
     }
 
+    @ParameterizedTest(name = "El mètode reset() ha de tornar el total a 0.")
+    @ValueSource(doubles = {35, 0, 198.4578})
+    void resetMethodReturnsTotalToZero(double total) {
+        Calculator calculator = new Calculator(total);
+        assertThat(calculator.reset()).isEqualTo(0);
+    }
+
 
 }
