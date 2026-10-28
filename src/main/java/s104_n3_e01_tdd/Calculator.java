@@ -29,6 +29,9 @@ public class Calculator {
     }
 
     public double divide(double number) {
+        if (number == 0.0) {
+            throw new ArithmeticException("Division by zero is undefined.");
+        }
         return total / number;
     }
 }
