@@ -38,5 +38,12 @@ public class CalculatorTest {
         assertThat(calculator.multiply(number)).isEqualTo(total*number);
     }
 
+    @ParameterizedTest(name = "El mètode divide(x) actualitza correctament el total dividint pel valor.")
+    @CsvSource({"15, 4"})
+    void divideMethodDividesTotalByInput(double total, double number) {
+        Calculator calculator = new Calculator(total);
+        assertThat(calculator.divide(number)).isEqualTo(total/number);
+    }
+
 
 }
