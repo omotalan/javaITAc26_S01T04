@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CalculatorTest {
 
@@ -43,6 +44,15 @@ public class CalculatorTest {
     void divideMethodDividesTotalByInput(double total, double number) {
         Calculator calculator = new Calculator(total);
         assertThat(calculator.divide(number)).isEqualTo(total/number);
+    }
+
+    @ParameterizedTest(name = "Dividir per zero ha de generar una excepció (ArithmeticException).")
+    @CsvSource({"15, 0"})
+    void divideByZeroThrowsArithmeticException(double total, double number) {
+        Calculator calculator = new Calculator(total);
+        assertThatThrownBy(() -> {
+            calculator.divide(number);
+        }).isInstanceOf(ArithmeticException.class);
     }
 
 
