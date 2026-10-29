@@ -22,28 +22,32 @@ public class CalculatorTest {
     @ValueSource(ints = {5})
     void addMethodAddsToTotal(int number) {
         Calculator calculator = new Calculator();
-        assertThat(calculator.add(number)).isEqualTo(number);
+        calculator.add(number);
+        assertThat(calculator.getTotal()).isEqualTo(number);
     }
 
     @ParameterizedTest(name = "El mètode add(x) incrementa el total.")
     @ValueSource(ints = {25})
     void subtractMethodSubtractsFromTotal(int number) {
         Calculator calculator = new Calculator();
-        assertThat(calculator.subtract(number)).isEqualTo(-number);
+        calculator.subtract(number);
+        assertThat(calculator.getTotal()).isEqualTo(-number);
     }
 
     @ParameterizedTest(name = "El mètode multiply(x) multiplica el total pel valor passat.")
     @CsvSource({"21, 2"})
     void multiplyMethodMultipliesTotalByInput(int total, int number) {
         Calculator calculator = new Calculator(total);
-        assertThat(calculator.multiply(number)).isEqualTo(total*number);
+        calculator.multiply(number);
+        assertThat(calculator.getTotal()).isEqualTo(total*number);
     }
 
     @ParameterizedTest(name = "El mètode divide(x) actualitza correctament el total dividint pel valor.")
     @CsvSource({"15, 4"})
     void divideMethodDividesTotalByInput(double total, double number) {
         Calculator calculator = new Calculator(total);
-        assertThat(calculator.divide(number)).isEqualTo(total/number);
+        calculator.divide(number);
+        assertThat(calculator.getTotal()).isEqualTo(total/number);
     }
 
     @ParameterizedTest(name = "Dividir per zero ha de generar una excepció (ArithmeticException).")
@@ -59,7 +63,8 @@ public class CalculatorTest {
     @ValueSource(doubles = {35, 0, 198.4578})
     void resetMethodReturnsTotalToZero(double total) {
         Calculator calculator = new Calculator(total);
-        assertThat(calculator.reset()).isEqualTo(0);
+        calculator.reset();
+        assertThat(calculator.getTotal()).isEqualTo(0);
     }
 
     @ParameterizedTest(name = "El mètode getTotal() ha de retornar el valor actual del total.")

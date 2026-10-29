@@ -16,27 +16,26 @@ public class Calculator {
         return total;
     }
 
-    public double add(double number) {
-        return total += number;
+    public void add(double number) {
+        this.total += number;
     }
 
-    public double subtract(double number) {
-        return total -= number;
+    public void subtract(double number) {
+        this.total -= number;
     }
 
-    public double multiply(double number) {
-        return total * number;
+    public void multiply(double number) {
+        this.total = this.total * number;
     }
 
-    public double divide(double number) {
+    public void divide(double number) {
         if (number == 0.0) {
             throw new ArithmeticException("Division by zero is undefined.");
         }
-        return total / number;
+        this.total = this.total / number;
     }
 
-    public double reset() {
+    public void reset() {
         this.total = 0;
-        return total;
     }
 }
