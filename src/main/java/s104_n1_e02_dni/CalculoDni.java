@@ -4,15 +4,17 @@ public class CalculoDni {
     private static final String LLETRAS_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 
     public char calculateDniLetter(int baseNumber) {
+        validatePositiveNumber(baseNumber);
+        validateNumberSize(baseNumber);
         int rest = baseNumber % 23;
         return LLETRAS_DNI.charAt(rest);
     }
 
-    public void validatePositiveNumber(int baseNumber) {
+    private void validatePositiveNumber(int baseNumber) {
         if (baseNumber <= 0) {throw new IllegalArgumentException("Base number must be positive");}
     }
 
-    public void validateNumberSize(int baseNumber) {
+    private void validateNumberSize(int baseNumber) {
         String digits = Integer.toString(baseNumber).replaceAll("\\D", "");
         if (digits.length() != 8) {throw new IllegalArgumentException("Base number must be eight-digits long");}
     }

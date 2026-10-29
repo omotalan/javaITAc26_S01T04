@@ -35,13 +35,13 @@ public class CalculoDniTest {
     @ParameterizedTest(name = "Throws on negative numbers")
     @ValueSource(ints = {-789456, -87654321, -28_419_926})
     void rejectsNegativeNumbers(int input) {
-        assertThrows(IllegalArgumentException.class, () -> calcDni.validatePositiveNumber(input));
+        assertThrows(IllegalArgumentException.class, () -> calcDni.calculateDniLetter(input));
     }
 
 
     @ParameterizedTest(name = "Throws on numbers that are not eight digits long")
     @ValueSource(ints = {0, -1234567, 9_999_999, 100_000_000})
     void rejectsNumbersThatAreNotEightDigits(int input) {
-        assertThrows(IllegalArgumentException.class, () -> calcDni.validateNumberSize(input));
+        assertThrows(IllegalArgumentException.class, () -> calcDni.calculateDniLetter(input));
     }
 }
