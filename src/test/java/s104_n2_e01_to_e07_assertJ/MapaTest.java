@@ -10,7 +10,7 @@ class MapaTest {
         Mapa testMap = new Mapa();
 
         // Exercici 5
-        assertThat(testMap.map).containsKey("Player2");
+        assertThat(testMap.getMap()).containsKey("Player2");
     }
 }
 

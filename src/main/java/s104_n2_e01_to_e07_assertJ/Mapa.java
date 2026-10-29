@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Mapa {
-    HashMap<String,Integer> map;
+    private HashMap<String,Integer> map;
 
     public Mapa() {
         this.map = new HashMap<>(Map.of(
@@ -24,7 +24,7 @@ public class Mapa {
     }
 
     public HashMap<String, Integer> getMap() {
-        return map;
+        return new HashMap<>(this.map);
     }
 
     @Override
