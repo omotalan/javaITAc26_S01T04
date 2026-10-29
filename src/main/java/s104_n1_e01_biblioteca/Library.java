@@ -43,7 +43,7 @@ public class Library {
 
     private void ensureTitleIsAvailable(String title) {
         for (Book book : this.books) {
-            if (book.title().equals(title)) {
+            if (book.title().equalsIgnoreCase(title)) {
                 throw new IllegalArgumentException("A book with title '" + title + "' already exists");
             }
         }

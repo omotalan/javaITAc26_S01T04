@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
@@ -27,7 +24,8 @@ class LibraryTest {
     @Test
     @DisplayName("La col·lecció no ha de ser nul·la després d’instanciar la classe.")
     void libraryIsNotNullAfterInstantiation() {
-        assertNotNull(library);
+        assertInstanceOf(Library.class, library);
+        assertTrue(library.getBooks().isEmpty());
     }
 
     @Test
